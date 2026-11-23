@@ -518,7 +518,7 @@ h1, h2, h3, h4, .font-heading {
 /* APPLICATION SHELL (POST-LOGIN) */
 .app-shell {
   display: grid;
-  grid-template-columns: 248px 1fr;
+  grid-template-columns: 268px 1fr;
   min-height: 100dvh;
 }
 
@@ -528,7 +528,7 @@ h1, h2, h3, h4, .font-heading {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 24px 14px;
+  padding: 24px 16px;
   position: sticky;
   top: 0;
   height: 100dvh;
@@ -608,7 +608,7 @@ h1, h2, h3, h4, .font-heading {
 
 .app-topbar {
   height: 64px;
-  padding: 0 36px;
+  padding: 0 32px;
   border-bottom: 1px solid var(--deep-ink-10);
   display: flex;
   align-items: center;
@@ -622,10 +622,10 @@ h1, h2, h3, h4, .font-heading {
 }
 
 .app-content {
-  padding: 36px 40px 64px;
-  max-width: 1240px;
+  padding: 28px 32px 64px;
   width: 100%;
-  margin: 0 auto;
+  max-width: 100%;
+  margin: 0;
 }
 
 .page-header {
