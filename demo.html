@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>काम CLUB — Interactive Live Demo & Architecture Showcase</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Mukta:wght@700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="landing-header-wrap">
+    <header class="landing-nav">
+      <a href="index.html" class="brand-wordmark">
+        <span class="deva">काम</span><span class="club">CLUB</span>
+      </a>
+      <nav class="landing-nav-links">
+        <a href="#interactive-scenarios">1-Click Scenarios</a>
+        <a href="#live-workspace">Embedded Workspace</a>
+        <a href="#connected-flow">Connected Architecture</a>
+      </nav>
+      <div class="flex-row">
+        <a href="index.html" class="btn btn-berry btn-sm">Open Full App →</a>
+      </div>
+    </header>
+  </div>
+
+  <div class="landing-container">
+    <!-- Hero -->
+    <section style="padding: 56px 0 40px;">
+      <div class="eyebrow">
+        <span class="eyebrow-dot berry"></span>
+        <span>Interactive Product Tour • Less chaos, more kaam.</span>
+      </div>
+      <div class="flex-between" style="flex-wrap:wrap; gap:20px; align-items:flex-end;">
+        <div>
+          <h1 style="font-size:clamp(2.1rem, 3.6vw, 3.1rem); max-width:740px;">
+            काम CLUB — Interactive Live Demo Showcase
+          </h1>
+          <p style="color:var(--deep-ink-80); font-size:1.05rem; max-width:650px; margin-top:8px;">
+            Test the connected student productivity ecosystem below. Trigger real-time scenarios in the embedded workspace or jump straight into any of the 10 screens.
+          </p>
+        </div>
+        <div class="flex-row" style="flex-wrap:wrap;">
+          <a href="index.html" class="btn btn-primary btn-lg">Launch Fullscreen App</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1-Click Scenario Triggers -->
+    <section id="interactive-scenarios" style="padding-bottom: 32px;">
+      <div class="card card-white" style="padding: 22px 24px;">
+        <div class="flex-between" style="flex-wrap:wrap; gap:14px; margin-bottom:16px;">
+          <div>
+            <span class="stat-label">GUIDED JURY / REVIEWER SCENARIOS</span>
+            <h3 style="font-size:1.15rem; margin-top:2px;">Click any scenario to load that exact module inside the live preview below</h3>
+          </div>
+          <span class="badge badge-herb" id="active-scenario-badge">Viewing: Landing Page</span>
+        </div>
+
+        <div style="display:flex; flex-wrap:wrap; gap:10px;">
+          <button class="btn btn-berry btn-sm" onclick="runDemoScenario('planner', 'Smart Planner (Signature USP)')">
+            1. Smart Planner & Conflict Engine
+          </button>
+          <button class="btn btn-outline btn-sm" onclick="runDemoScenario('dashboard', 'Live Student Dashboard')">
+            2. Live Student Dashboard
+          </button>
+          <button class="btn btn-outline btn-sm" onclick="runDemoScenario('workspace', '6-Tab Project Workspace')">
+            3. Team Project Workspace (IITD Solar Microgrid)
+          </button>
+          <button class="btn btn-outline btn-sm" onclick="runDemoScenario('contributions', '3-Tier Contribution Tracker')">
+            4. 3-Tier Contribution Tracker
+          </button>
+          <button class="btn btn-outline btn-sm" onclick="runDemoScenario('portfolio', 'Verified Student Portfolio')">
+            5. Shareable Student Portfolio
+          </button>
+          <button class="btn btn-outline btn-sm" onclick="runDemoScenario('recognition', 'Recognition Hub & Badges')">
+            6. Recognition Hub & Leaderboard
+          </button>
+          <button class="btn btn-ghost btn-sm" onclick="runDemoScenario('landing', 'Editorial Landing Page')">
+            Reset to Landing Page
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Embedded Live Interactive Workspace Frame -->
+    <section id="live-workspace" style="padding-bottom: 64px;">
+      <div class="bezel-shell">
+        <div class="bezel-core">
+          <div style="background:var(--deep-ink); color:var(--warm-paper); padding:10px 18px; display:flex; align-items:center; justify-content:space-between; font-size:0.78rem; font-family:var(--font-heading);">
+            <div class="flex-row" style="gap:6px;">
+              <span style="width:10px;height:10px;border-radius:50%;background:var(--burnt-apricot);display:inline-block;"></span>
+              <span style="width:10px;height:10px;border-radius:50%;background:var(--butter-yellow);display:inline-block;"></span>
+              <span style="width:10px;height:10px;border-radius:50%;background:var(--herb-green);display:inline-block;"></span>
+              <span style="margin-left:10px; opacity:0.85;">kaamclub.edu/workspace — Live Interactive Sandbox</span>
+            </div>
+            <a href="index.html" style="color:var(--warm-paper); text-decoration:underline; font-size:0.75rem;">Open in New Tab ↗</a>
+          </div>
+          <iframe
+            id="demo-iframe"
+            src="index.html"
+            title="काम CLUB Live Interactive App"
+            style="width:100%; height:760px; border:none; display:block; background:var(--warm-paper);"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Connected Ecosystem Architecture Summary -->
+    <section id="connected-flow" class="landing-section" style="padding-top:48px;">
+      <div class="eyebrow"><span class="eyebrow-dot"></span><span>Connected Architecture</span></div>
+      <h2 style="font-size:1.85rem; margin-bottom:24px;">How all 5 modules stay synchronized in real time</h2>
+      <div class="grid-3">
+        <div class="card card-herb">
+          <span class="stat-label">FLOW 01 • PROJECT → PLANNER</span>
+          <h3 style="font-size:1.1rem; margin:8px 0;">Unified Task Ingestion</h3>
+          <p style="font-size:0.86rem; color:var(--deep-ink-80);">
+            When a team lead assigns a task inside a <strong>Project Workspace</strong>, it automatically enters the assignee's <strong>Smart Planner</strong> and triggers capacity conflict checks.
+          </p>
+        </div>
+        <div class="card card-blue">
+          <span class="stat-label">FLOW 02 • PLANNER → TRACKER</span>
+          <h3 style="font-size:1.1rem; margin:8px 0;">3-Tier Proof Verification</h3>
+          <p style="font-size:0.86rem; color:var(--deep-ink-80);">
+            Checking off a task updates the project completion bar and logs a <strong>Tier 1 (Self-Reported)</strong> entry. Attaching proof advances it to <strong>Tier 2</strong>, and peer/faculty sign-off elevates it to <strong>Tier 3</strong>.
+          </p>
+        </div>
+        <div class="card card-butter">
+          <span class="stat-label">FLOW 03 • TRACKER → PORTFOLIO</span>
+          <h3 style="font-size:1.1rem; margin:8px 0;">Verified Student Showcase</h3>
+          <p style="font-size:0.86rem; color:var(--deep-ink-80);">
+            Tier 3 verified deliverables and 100% completed projects unlock badges in the <strong>Recognition Hub</strong> and populate the student's public shareable <strong>Student Portfolio</strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    function runDemoScenario(viewName, label) {
+      const iframe = document.getElementById('demo-iframe');
+      const badge = document.getElementById('active-scenario-badge');
+      if (badge) badge.textContent = 'Viewing: ' + label;
+      if (iframe && iframe.contentWindow) {
+        if (viewName === 'landing') {
+          iframe.contentWindow.navigate('landing');
+        } else {
+          iframe.contentWindow.demoLogin(viewName);
+        }
+      }
+    }
+  </script>
+</body>
+</html>
