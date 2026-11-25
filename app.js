@@ -2462,7 +2462,7 @@ function renderPortfolio() {
           <button class="btn ${state.publicPortfolioPreview ? 'btn-berry' : 'btn-outline'}" onclick="state.publicPortfolioPreview=!state.publicPortfolioPreview; render();">
             ${state.publicPortfolioPreview ? 'Exit Public Preview' : 'Preview Public View'}
           </button>
-          <button class="btn btn-primary" onclick="navigator.clipboard?.writeText('https://kaamclub.edu/u/aarav-sharma'); showToast('Public Portfolio URL copied to clipboard.');">
+          <button class="btn btn-primary" onclick="copyPublicPortfolioLink()">
             ${ICONS.link}<span>Copy Share Link</span>
           </button>
         </div>
@@ -2576,6 +2576,18 @@ function renderPortfolio() {
       </div>
     </div>
   `;
+}
+
+function copyPublicPortfolioLink() {
+  const baseUrl = (typeof window !== 'undefined' && window.location)
+    ? window.location.origin + window.location.pathname
+    : 'https://dhrgupta096.github.io/kaam-club/';
+  const slug = (state.user.name || 'student').toLowerCase().replace(/[^a-z0-9]+/g, '-');
+  const shareUrl = `${baseUrl}?view=portfolio&u=${slug}`;
+  if (typeof navigator !== 'undefined' && navigator.clipboard) {
+    navigator.clipboard.writeText(shareUrl);
+  }
+  showToast(`Shareable Portfolio Link copied: ${shareUrl}`);
 }
 
 function promptAddSkill() {
@@ -2879,5 +2891,17 @@ function render() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  if (typeof window !== 'undefined' && window.location && window.location.search) {
+    const params = new URLSearchParams(window.location.search);
+    const viewParam = params.get('view');
+    if (viewParam === 'portfolio' || params.get('u')) {
+      state.isLoggedIn = true;
+      state.currentView = 'portfolio';
+      state.publicPortfolioPreview = true;
+    } else if (viewParam) {
+      state.isLoggedIn = true;
+      state.currentView = viewParam;
+    }
+  }
   render();
 });
